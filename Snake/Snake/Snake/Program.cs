@@ -21,6 +21,9 @@ namespace Snake
             HorizontalLine line = new HorizontalLine( 0, 79, 0, '+');
             line.Drow();
 
+            VerticalLine lineV = new VerticalLine( 0, 24, 0, '+');
+            lineV.Drow();
+
             Console.ReadLine();
         }
     }
