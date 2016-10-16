@@ -41,6 +41,8 @@ namespace Snake
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    //Console.WriteLine("You lose!");
+                    //Console.ReadKey();
                     break;
                 }
                 if(snake.Eat( food ))
@@ -60,7 +62,26 @@ namespace Snake
                     snake.HandleKey(key.Key);
                 }
             }
-                //Console.ReadLine();
+            WriteGameOver();
+            Console.ReadLine();
+        }
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("Автор: Valentin Miglei", xOffset + 2, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
         }
     }
 
